@@ -17,15 +17,15 @@ function Modal({
       closeModal();
     }
   };
-  const barcodeRef = React.useRef(null);
+   const barcodeRef = React.useRef(null);
 
-  React.useEffect(() => {
-    // Genera el código de barras utilizando jsbarcode
-    JsBarcode(barcodeRef.current, xref, {
-      format: "CODE128", // Puedes ajustar el formato según tus necesidades
-      displayValue: false, // No mostrar el valor del código
-    });
-  }, [xref]);
+   React.useEffect(() => {
+     // Genera el código de barras utilizando jsbarcode
+     JsBarcode(barcodeRef.current, xref, {
+       format: "CODE128", // Puedes ajustar el formato según tus necesidades
+       displayValue: false, // No mostrar el valor del código
+     });
+   }, [xref]);
 
 
 
@@ -33,11 +33,12 @@ function Modal({
     <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
         <h1>Barcode of {description}</h1>
-        <svg
+        { <svg
           ref={barcodeRef}
           className="barcode-svg"
 
-        />
+        /> }
+
         <p>{itemNo_}  {colourCode}  {sizeCode}</p>
         <button onClick={closeModal}>Cerrar Modal</button>
       </div>
